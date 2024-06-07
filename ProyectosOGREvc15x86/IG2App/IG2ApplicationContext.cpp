@@ -116,8 +116,6 @@ namespace OgreBites {
 		initialiseRTShaderSystem();
 		loadResources();
 
-		//mRoot->showConfigDialog(OgreBites::getNativeConfigDialog());
-
 		// adds context as listener to process context-level (above the sample level) events
 		mRoot->addFrameListener(this);
 	}

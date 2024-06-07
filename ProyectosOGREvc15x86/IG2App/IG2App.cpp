@@ -46,7 +46,6 @@ void IG2App::setup(void)
 
   mTrayMgr = new OgreBites::TrayManager("TrayGUISystem", mWindow.render);  
   mTrayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
-
   addInputListener(mTrayMgr);
 
   addInputListener(this);   
@@ -71,7 +70,7 @@ void IG2App::setupScene(void)
   
   // and tell it to render into the main window
   Viewport* vp = getRenderWindow()->addViewport(cam);
-  vp->setBackgroundColour(Ogre::ColourValue(0.7, 0.8, 0.9));
+  //vp->setBackgroundColour(Ogre::ColourValue(1, 1, 1));
 
   //------------------------------------------------------------------------
 
@@ -79,34 +78,26 @@ void IG2App::setupScene(void)
 
   Light* luz = mSM->createLight("Luz");
   luz->setType(Ogre::Light::LT_DIRECTIONAL);
-  luz->setDiffuseColour(0.6, 0.4, 0.5);
+  luz->setDiffuseColour(0.75, 0.75, 0.75);
 
   mLightNode = mSM->getRootSceneNode()->createChildSceneNode("nLuz");
   //mLightNode = mCamNode->createChildSceneNode("nLuz");
   mLightNode->attachObject(luz);
 
-  // Izquierda = 1,0,0 Derecha = -1,0,0 Abajo = 0,1,0 Frente = 0,0,0
-  mLightNode->setDirection(Ogre::Vector3(0, 0, 0));  //vec3.normalise();
+  mLightNode->setDirection(Ogre::Vector3(0, 0, -1));  //vec3.normalise();
   //lightNode->setPosition(0, 0, 1000);
  
   //------------------------------------------------------------------------
 
   // finally something to render
 
-  mSceneryNode = mSM->getRootSceneNode()->createChildSceneNode("nScenery");
-  Ogre::Entity* ent = mSM->createEntity("RomanBathLower.mesh");
-  mSceneryNode->attachObject(ent);
-  ent = mSM->createEntity("RomanBathUpper.mesh");
-  mSceneryNode->attachObject(ent);
+  Ogre::Entity* ent = mSM->createEntity("Sinbad.mesh");
 
   mSinbadNode = mSM->getRootSceneNode()->createChildSceneNode("nSinbad");
-  ent = mSM->createEntity("Sinbad.mesh");
   mSinbadNode->attachObject(ent);
-  mSinbadNode->setPosition(0, 20, 0);
-  mSinbadNode->setScale(20, 20, 20);
 
   //mSinbadNode->setPosition(400, 100, -300);
-  //mSinbadNode->setScale(20, 20, 20);
+  mSinbadNode->setScale(20, 20, 20);
   //mSinbadNode->yaw(Ogre::Degree(-45));
   //mSinbadNode->showBoundingBox(true);
   //mSinbadNode->setVisible(false);
