@@ -26,7 +26,10 @@ protected:
   Ogre::SceneNode* mLightNode = nullptr;
   Ogre::SceneNode* mCamNode = nullptr;
   Ogre::SceneNode* mSinbadNode = nullptr;
+  Ogre::SceneNode* mClockNode = nullptr;
   OgreBites::CameraMan* mCamMgr = nullptr;
+
+  int mId = 1;
  
 };
 
