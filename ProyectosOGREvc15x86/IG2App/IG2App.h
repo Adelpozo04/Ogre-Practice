@@ -7,7 +7,6 @@
 #include <OgreTrays.h>
 #include <OgreCameraMan.h>
 
-
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener 
 {
 public:
@@ -29,7 +28,7 @@ protected:
   Ogre::SceneNode* mClockNode = nullptr;
   OgreBites::CameraMan* mCamMgr = nullptr;
 
-  int mId = 1;
+  int mId = 2;
  
 };
 
